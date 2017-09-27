@@ -38,19 +38,29 @@ var step = function () {
 var update = function () {
     player.update();
     computador.update(tiro);
-    tiro.update(player.atirador, computador.inimigo);
+    for (var i = 0; i < tiro.length; i++) {
+      //console.log(tiro[i]);
+      tiro[i].update(player.atirador, computador.inimigo);
+    }
 };
 
 var player = new Player();
 var computador = new Computador();
-var tiro = new Tiro(300, 580);
+var t1 = new Tiro(300,580,false);
+var t2 = new Tiro(0,0,false);
+var t3 = new Tiro(0,0,false);
+var t4 = new Tiro(0,0,false);
+var tiro = [t1,t2,t3,t4];
 
 var render = function () {
     context.fillStyle = "#000000";
     context.fillRect(0, 0, width, height);
     player.render();
     computador.render();
-    tiro.render();
+    for (var i = 0; i < tiro.length; i++) {
+      //console.log(tiro[i]);
+      tiro[i].render();
+    }
 };
 
 var keysDown = {};

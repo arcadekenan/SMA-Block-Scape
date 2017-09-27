@@ -1,7 +1,7 @@
 const Tiro = require('./tiro.js');
 
 class Atirador {
-    
+
     constructor (x, y, width, height) {
         this.x = x;
         this.y = y;
@@ -10,13 +10,13 @@ class Atirador {
         this.x_speed = 0;
         this.y_speed = 0;
     }
-    
+
     render() {
         context.fillStyle = "white";
         context.fillRect(this.x, this.y, this.width, this.height);
         context.fillRect(this.x + (this.width/3), this.y - (this.height), 15, 15);
     }
-    
+
     move(x, y) {
         this.x += x;
         this.y += y;
@@ -30,9 +30,10 @@ class Atirador {
             this.x_speed = 0;
         }
     }
-    
-    atirar(){
-        tiro = new Tiro((player.atirador.x) + 25, 580);
+
+    atirar(count){
+        console.log(count);
+        tiro[count] = new Tiro((player.atirador.x) + 25, 580, true);
         console.log("atirei");
     }
 }
